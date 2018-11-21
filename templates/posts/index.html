@@ -1,0 +1,32 @@
+{% extends "layouts/default.html" %}
+
+
+{% block title %}
+    Blog
+{% endblock title %}
+    
+
+{% block body %}
+
+    <h1>Blog ({{pluralize(posts|length, 'post', 'posts')}})</h1>
+
+   
+    
+    
+    {% for post in posts %}
+        <article>
+            <h2><a href="{{url_for('posts_show', id=post.id)}}">#{{post.id}}-{{post.title}} </a></h2>
+            <p>{{post.content|truncate(15)}}</p>
+        </article>
+
+        <hr>
+    {% endfor %}
+        
+
+    
+
+
+{% endblock body %}
+
+
+    
